@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mahasiswa;
+
+message Mahasiswa {
+  string id = 1;
+  string nama = 2;
+  string nrp = 3;
+  string angkatan = 4;
+}
+
+message AddMahasiswaRequest {
+  Mahasiswa mahasiswa = 1;
+}
+
+message Empty {}
+
+message GetMahasiswaRequest {
+  string id = 1;
+}
+
+message UpdateMahasiswaRequest {
+  Mahasiswa mahasiswa = 1;
+}
+
+message DeleteMahasiswaRequest {
+  string id = 1;
+}
+
+message MahasiswaList {
+repeated Mahasiswa mhs = 1;
+}
+
+service MahasiswaService {
+  rpc AddMahasiswa (AddMahasiswaRequest) returns (Mahasiswa) {}
+  rpc GetAllMhs (Empty) returns (MahasiswaList) {}
+  rpc GetMahasiswa (GetMahasiswaRequest) returns (Mahasiswa) {}
+  rpc UpdateMahasiswa (UpdateMahasiswaRequest) returns (Mahasiswa) {}
+  rpc DeleteMahasiswa (DeleteMahasiswaRequest) returns (Mahasiswa) {}
+}
