@@ -120,7 +120,7 @@ const getAllMhs = async (call, callback) => {
     querySnapshot.forEach((doc) => {
       const data = doc.data();
       const mahasiswa = {
-        id: doc.id, // gunakan id dokumen sebagai id buku
+        id: doc.id,
         nama: data.nama,
         nrp: data.nrp,
         angkatan: data.angkatan,
