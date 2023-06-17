@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SSE Notification</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
+      #notifications {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      
+  </style>
+  <script>
+    const eventSource = new EventSource('/notifications');
+    
+    eventSource.onmessage = (event) => {
+      const notification = JSON.parse(event.data);
+      displayNotification(notification.message);
+    };
+    
+    function displayNotification(message) {
+      const notificationContainer = document.getElementById('notifications');
+      const notificationElement = document.createElement('div');
+      notificationElement.innerText = message;
+      notificationContainer.appendChild(notificationElement);
+    }
+  </script>
+</head>
+<body>
+  <h1>Server-Sent Events (SSE) - Feed Notifikasi</h1>
+  <div id="notifications"></div>
+</body>
+</html>

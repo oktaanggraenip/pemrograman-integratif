@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Program gRPC protobuf</title>
+    <script src="client.js"></script>
+  </head>
+  <body>
+    <h1>Data mahasiswa Universitas X</h1>
+    <p>
+      Berikut ini terdapat beberapa opsi untuk mengelola data mahasiswa Universitas X, silakan
+      pilih salah satu :
+    </p>
+    <ul>
+        <li>
+          <a href="#" onclick="addMahasiswa()">Tambah Mahasiswa</a>
+        </li>
+        <li>
+          <a href="#" onclick="getMahasiswa()">Cari Mahasiswa</a>
+        </li>
+        <li>
+          <a href="#" onclick="updateMahasiswa()">Update Mahasiswa</a>
+        </li>
+        <li>
+          <a href="#" onclick="deleteMahasiswa()">Hapus Mahasiswa</a>
+        </li>
+        <li>
+          <a href="#" onclick="getAllMhs()">Tampilkan Semua Mahasiswa</a>
+        </li>
+    </ul>
+    <script src="server.js"></script>
+  </body>
+</html>
