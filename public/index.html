@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Streaming Data Pembaruan Cuaca</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
+      #weather-data {
+        font-size: 18px;
+        margin-top: 20px;
+      }    
+</style>
+
+<body>
+    <h1>Streaming Data Pembaruan Cuaca</h1>
+    <div id="weather-data"></div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
+
+        socket.addEventListener('message', (event) => {
+            const weatherData = JSON.parse(event.data);
+            const weatherElement = document.getElementById('weather-data');
+            weatherElement.innerHTML = `Suhu: ${weatherData.temperature}°C, Kelembaban: ${weatherData.humidity}%`;
+        });
+    </script>
+</body>
+</html>
